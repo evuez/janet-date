@@ -36,10 +36,10 @@ static const struct jd_tm_key jd_tm_keys[] = {
 	{"wday",  offsetof(struct tm, tm_wday)},
 	{"yday",  offsetof(struct tm, tm_yday)},
 	{"isdst", offsetof(struct tm, tm_isdst)},
-#ifdef TM_GMTOFF
+#if defined TM_GMTOFF && defined (HAVE_STRUCT_TM_GMTOFF)
 	{"gmtoff", offsetof(struct tm, TM_GMTOFF)},
 #endif
-#ifdef TM_ZONE
+#if defined TM_ZONE && defined (HAVE_STRUCT_TM_ZONE)
 	{"zone", offsetof(struct tm, TM_ZONE)},
 #endif
 	{NULL, 0},
